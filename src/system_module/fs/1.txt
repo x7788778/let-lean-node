@@ -1,1 +1,4 @@
 testwrite
+
+留意点
+fs.writeFIle 调用时 写入同一个文件， 新的会替换旧的

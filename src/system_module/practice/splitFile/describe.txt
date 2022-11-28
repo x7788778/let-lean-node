@@ -1,0 +1,7 @@
+实验：
+拆分html文件中的html,css,js到三个文件中去
+
+步骤：
+创建两个正则，匹配<style> <script>表情
+使用fs，读取html
+自定义resolveCSS,resolveHTML,resolveJS方法读取对应内容

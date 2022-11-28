@@ -1,0 +1,41 @@
+<!--
+ * @Date: 2022-11-28 16:13:55
+ * @LastEditors: zhaogang 156606672@qq.com
+ * @LastEditTime: 2022-11-28 16:33:24
+ * @FilePath: /learn-node-20221114/src/system_module/practice/splitFile/index.html
+ * @name: filename
+ * @description: description
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        border-color: black;
+        margin: 10px 10px;
+        background-color: aqua;
+    }
+</style>
+<body>
+    <div class="box">
+        我是蓝盒子
+    </div>
+</body>
+    <script>
+        window.onload = function(){
+            const box = document.querySelector('.box')
+            box.addEventListener('click',(e)=>{
+                console.log(e.target,'e')
+                let ele = e.target
+                ele.style.backgroundColor = 'blue'
+            })
+        }
+    </script>
+</html>
