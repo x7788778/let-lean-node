@@ -1,0 +1,19 @@
+{
+  "name": "learn-node-20221114",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/x7788778/let-lean-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/x7788778/let-lean-node/issues"
+  },
+  "homepage": "https://github.com/x7788778/let-lean-node#readme"
+}
