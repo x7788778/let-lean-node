@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/x7788778/let-lean-node/issues"
   },
-  "homepage": "https://github.com/x7788778/let-lean-node#readme"
+  "homepage": "https://github.com/x7788778/let-lean-node#readme",
+  "dependencies": {
+    "codemirror": "^6.0.1"
+  }
 }
