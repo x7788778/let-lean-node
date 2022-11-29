@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-11-29 15:46:12
  * @LastEditors: zhaogang 156606672@qq.com
- * @LastEditTime: 2022-11-29 15:48:49
+ * @LastEditTime: 2022-11-29 16:26:37
  * @FilePath: /learn-node-20221114/src/system_module/npm/index.html
  * @name: filename
  * @description: description
@@ -13,10 +13,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script >
+
+// import {basicSetup, EditorView} from "codemirror"
+// import {javascript} from "@codemirror/lang-javascript"
+const {basicSetup, EditorView} = require('codemirror')
+const {javascript} = require('@codemirror/lang-javascript')
+
+const editor = new EditorView({
+  doc: "console.log('hello')\n",
+  extensions: [basicSetup, javascript()],
+  parent: document.body
+})
+console.log(editor,'eee')
+    </script>
 </head>
+
 <body>
-    hello!
-    <textarea name="" id="" cols="30" rows="10"></textarea>
+    console.log(111)
+    <!-- <textarea id="code" name="code" style="display: none;" cols="30" rows="10"></textarea> -->
 </body>
-<script src="./1.js"></script>
+
 </html>
