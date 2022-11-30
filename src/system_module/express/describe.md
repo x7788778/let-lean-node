@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-11-29 21:43:34
  * @LastEditors: zhaogang 156606672@qq.com
- * @LastEditTime: 2022-11-30 20:12:07
+ * @LastEditTime: 2022-11-30 22:19:28
  * @FilePath: /learn-node-20221114/src/system_module/express/describe.md
  * @name: filename
  * @description: description
@@ -121,5 +121,42 @@ express.urlencoded 解析URL-encoded 格式请求数据(^4.16.0)
 模拟一个express.urlencoded 解析post提交到服务器的表单数据
 
 
+## express 使用 cors 解决跨域问题
+1. npm i cors
+2. const sors = require('cors')
+3. 路由之前注册 app.use(cors())
 
+cors由一系列http响应头组成，这些响应头觉得浏览器是否阻止前端js跨域获取资源
+浏览器 同源安全策略默认阻止跨域。但服务器配置cors响应头，就可以解除
+
+cors有兼容性，只有支持XMLHttpRequest level2的浏览器（如ie10+， chrome4+ fireFox3.5+)，才能正常开启
+
+看下都有哪些响应头
+
+    Access-Control-Allow-Origin: originn | *
+    // origin指定语序访问该资源的外域URL ，只支持单一一个或所有。不能配置白名单啥的
+    
+    Access-Control-Allow-Headers
+    // 默认情况下cors仅支持客户端向服务器发送如下9个请求头
+    // Accept、Aceept-Language、Content-Language、DPR、DownLink、Save-Data、ViewPort-Width、Content-Type(三选一：text/plain、 multipart/form-data、application/x-www-form-urlencoded)
+    //如果客户端给服务器发送了额外的请求头，需要在服务的通过此cors响应头对额外的一些响应头进行声明，否则这次请求会失败
+    // 比如res.setHeader('Access-Control-Allow-Headers','Centent-Type, X-Custom-Header ')
+
+    Access-Control-Allow-Methods
+    // 默认情况下，CORS仅支持GET,POST,HEAD。如需服务端支持PUT、DELETE，再此响应头声明
+    //res.setHeader('Access-Control-Allow-Methods','*') *代表通配符，或者'POST,GET,DELETE,PUT'
+
+CORS简单请求：
+
+    支持GET,POST,HEAD
+    仅限上文中9个请求头
+
+预检请求：
+    客户端向服务端发送请求时会先发送OPTION进行请求预检，询问服务器是否允许该实际请求。服务器成功响应预检请求（响应204），进行真正的请求。
+    
+    什么情况下触发预检请求
+
+    向服务器发送application/json 格式数据
+    包含自定义头部字段
+    请求方式不为GET,POST,HEAD
 
