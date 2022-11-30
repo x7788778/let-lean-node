@@ -1,0 +1,12 @@
+
+# GET http://localhost:80/usr
+POST  http://localhost:80/user
+
+Content-Type: application/json
+
+{
+    "name": "sample",
+    "age":18,
+    "sex":"male",
+    "ect":"等等。。。"
+}
