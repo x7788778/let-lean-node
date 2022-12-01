@@ -1,7 +1,7 @@
 <!--
  * @Date: 2022-11-30 22:19:41
  * @LastEditors: zhaogang 156606672@qq.com
- * @LastEditTime: 2022-12-01 00:13:22
+ * @LastEditTime: 2022-12-01 00:23:23
  * @FilePath: /learn-node-20221114/src/system_module/MySQL/des.md
  * @name: filename
  * @description: description
@@ -49,6 +49,8 @@ SQL是一门数据库编程语言，使用SQL语言变写出来的代码叫做SQ
 
  ## SQL语句
     
+    MySQL Workbench中使用sql语句的例子
+
     -- 通过*把users所有数据查询出来
     -- select * from users
     -- 从users表中吧username和age对于的数据查询出来
@@ -69,3 +71,17 @@ SQL是一门数据库编程语言，使用SQL语言变写出来的代码叫做SQ
     select count(*) from users where xxx=某值
     -- 别名。 使用 as 关键字起别名
     select count(*) as xxxtotal from users where xxx=某值
+
+    项目中操作MySQL
+    1. 安装MySQL数据库三方模块（mysql)
+        npm i mysql
+    2. 通过mysql链接MySQL数据库
+        // 1.导入模块
+        const mysql = require('mysql')
+        const db = mysql.createPoll({
+            host:'127.0.0.1',
+            user:'root',
+            password:'admin123',
+            database:'my_db_01'
+        })
+    3. 通过模块执行SQL语句

@@ -1,0 +1,72 @@
+<!--
+ * @Date: 2022-12-01 21:01:58
+ * @LastEditors: zhaogang 156606672@qq.com
+ * @LastEditTime: 2022-12-01 23:44:33
+ * @FilePath: /learn-node-20221114/src/system_module/express/JWT/index.html
+ * @name: filename
+ * @description: description
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+</head>
+<body>
+    <form action="http://127.0.0.1/" method="post" enctype="multipart/form-data">
+        <input type="text" placeholder="一个值" autocomplete="name">
+
+        <input type="submit">123</input>
+    </form>
+    <button class="abc" >axios</button>
+    <button class="dom2" >getuse</button>
+</body>
+<script>
+    console.log(axios,'axios')
+    function foo(){
+        console.log('axi')
+        // axios.post('http://127.0.0.1',{
+        //     firstName: 'Fred',
+        //     lastName: 'Flintstone'
+        // },{
+        //     Headers:{
+        //         'Content-Type': 'application/json'
+        //     },
+        // })
+
+    }
+    const dom = document.querySelector('.abc')
+    const dom2 = document.querySelector('.dom2')
+    dom.addEventListener('click',async()=>{
+        console.log('dom lcikc')
+        const res = await axios.post('http://127.0.0.1/api/login',
+        // {
+        //     firstName: 'Fred',
+        //     lastName: 'Flintstone'
+        // }
+        'username=admin&password=123'
+        ,{
+            Headers:{
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+        })
+        window.sessionStorage.token = res.data.token
+        console.log(res,'post res')
+    })
+    dom2.addEventListener('click',()=>{
+        console.log('dom lcikc')
+        const AUTH_TOKEN = window.sessionStorage.token
+        axios.get('http://127.0.0.1/admin/getinfo',{
+            headers:{
+                'Authorization': `Bearer 234`
+            }
+        })
+    })
+    
+
+
+</script>
+</html>
